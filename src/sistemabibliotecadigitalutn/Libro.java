@@ -19,6 +19,12 @@ public class Libro {
         return codigo;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+    
+    
+
     public boolean estaDisponible() {
         return disponible;
     }

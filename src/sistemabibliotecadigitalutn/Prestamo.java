@@ -3,14 +3,14 @@ package sistemabibliotecadigitalutn;
 import java.time.LocalDate;
 
 public class Prestamo {
-    private String codigo;
+    private int codigo;
     private Libro libro;
     private Socio socio;
     private LocalDate fechaPrestamo;
     private LocalDate fechaDevolucion;
     private boolean estado;
 
-    public Prestamo(String codigo, Libro libro, Socio socio, LocalDate fechaPrestamo, boolean estado) {
+    public Prestamo(int codigo, Libro libro, Socio socio) {
         this.codigo = codigo;
         this.libro = libro;
         this.socio = socio;
@@ -18,13 +18,32 @@ public class Prestamo {
         this.estado = true;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+    
+    
+    
+    public void setFechaDevolucion(LocalDate fechaDevolucion) {
+        this.fechaDevolucion = fechaDevolucion;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Prestamo{" + "codigo=" + codigo + ", libro=" + libro + ", socio=" + socio + ", fechaPrestamo=" + fechaPrestamo + ", fechaDevolucion=" + fechaDevolucion + ", estado=" + estado + '}';
+        return "Prestamo:   " + codigo + "\nLibro:  " + libro.getTitulo() + "\nSocio:   " + socio.getApellido() + " " + socio.getNombre() + 
+                "\nFecha del prestamo:  " + fechaPrestamo + "\nEstado: " + estado;
     }
     
     

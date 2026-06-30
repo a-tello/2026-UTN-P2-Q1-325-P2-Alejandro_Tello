@@ -29,8 +29,9 @@ public class Consola {
             case 3 -> {listarSocios();pausar();}
             case 4 -> {listarLibrosDisponibles();pausar();}
             case 5 -> {buscarLibroPorCodigo();pausar();}
-            case 6 -> {pausar();}
-            case 8 -> {pausar();}
+            case 6 -> {registrarPrestamo();pausar();}
+            case 7 -> {devolverLibro();pausar();}
+            case 8 -> {mostrarPrestamosActivos();pausar();}
             case 9 -> {pausar();}
             case 10 -> {}
             default -> {System.out.println("\nDebe ingresar una opcion valida");} 
@@ -118,8 +119,66 @@ public class Consola {
         Libro libro = biblioteca.bucarLibro(codigo);
         
         System.out.println("\n\nLIBRO ENCONTRADO\n");
-        System.out.println(libro);
-        
-        
+        System.out.println(libro);    
     }
+    
+    public static void registrarPrestamo() {
+        String codigo = Validaciones.leerTexto("Ingrese codigo del libro: ");
+        
+        if (!biblioteca.existeLibro(codigo)) {
+            System.out.println("\nERROR. El libro de codigo " + codigo + " NO se encuentra registrado.");
+            return;
+        } else if(!biblioteca.libroDisponible(codigo)) {
+            System.out.println("\nERROR. El libro de codigo " + codigo + " no se encuentra disponible.");
+            return;
+        }
+        
+        int legajo = Validaciones.leerEntero("Ingrese su numero de legajo: ");
+        
+        if (!biblioteca.existeSocio(legajo)) {
+            System.out.println("El socio de legajo " + legajo + " no se encuentra registrado.");
+            return;
+        }
+        
+        try {
+            int numPrestamo = biblioteca.realizarPrestamo(codigo, legajo);
+            System.out.println("Prestamo registrado bajo el numero: " + numPrestamo);
+            System.out.println("El número de prestamo deberá ser ingresado para la devolucion");
+        } catch (Exception e) {
+            System.out.println("ERROR. " + e.getMessage());
+        }
+    }
+    
+    public static void devolverLibro() {
+        int numPrestamo = Validaciones.leerEntero("Ingrese su numero de prestamo: ");
+        
+        if (!biblioteca.existePrestamo(numPrestamo)) {
+            System.out.println("El prestamo " + numPrestamo + " no existe.");
+            return;
+        }
+        
+        try {
+           biblioteca.realizarDevolucion(numPrestamo);
+        } catch (Exception e) {
+            System.out.println("ERROR. " + e.getMessage());
+        }
+    }
+    
+    public static void mostrarPrestamosActivos() {
+        ArrayList<Prestamo> prestamosActivos = biblioteca.listarPrestamosActivos();
+        
+        System.out.println("\n\nPRESTAMOS ACTIVOS\n");
+        
+        for (Prestamo p : prestamosActivos) {
+            System.out.println(p);
+            System.out.println("-----------------------------------");
+        }
+    }
+    
+    public static <T> void imprimirArray(ArrayList<T> arreglo) {
+        for (T elemento : arreglo) {
+            System.out.println(elemento);
+        }
+    }
+
 }

@@ -17,6 +17,16 @@ public class Socio {
         return legajo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+    
+    
+    
     
     @Override
     public String toString() {

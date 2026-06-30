@@ -25,4 +25,8 @@ public class Repositorio<K,V> {
     public V buscar(K key) {
         return repo.get(key);
     }
+    
+    public int length() {
+        return repo.size();
+    }
 }
