@@ -28,7 +28,7 @@ public class Consola {
             case 2 -> {registrarLibro();pausar();}
             case 3 -> {listarSocios();pausar();}
             case 4 -> {listarLibrosDisponibles();pausar();}
-            case 5 -> {pausar();}
+            case 5 -> {buscarLibroPorCodigo();pausar();}
             case 6 -> {pausar();}
             case 8 -> {pausar();}
             case 9 -> {pausar();}
@@ -105,5 +105,21 @@ public class Consola {
             System.out.println(l);
             System.out.println("-----------------------------------");
         }
+    }
+    
+    public static void buscarLibroPorCodigo() {
+        String codigo = Validaciones.leerTexto("Ingrese codigo del libro: ");
+        
+        if (!biblioteca.existeLibro(codigo)) {
+            System.out.println("\nERROR. El libro de codigo " + codigo + " NO se encuentra registrado.");
+            return;
+        }
+        
+        Libro libro = biblioteca.bucarLibro(codigo);
+        
+        System.out.println("\n\nLIBRO ENCONTRADO\n");
+        System.out.println(libro);
+        
+        
     }
 }

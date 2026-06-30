@@ -35,7 +35,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Codigo: " + codigo + "\nTitulo: " + titulo + "\nAutor:  " + autor + "\nMateria: " + materia;
+        return "Codigo: " + codigo + "\nTitulo: " + titulo + "\nAutor:  " + autor + "\nMateria: " + materia + "\nDisponible:    " + (disponible ? "Si" : "No");
     }
     
     

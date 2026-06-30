@@ -46,4 +46,15 @@ public class Biblioteca {
     public boolean existeLibro(String codigo) {
         return repoLibros.existe(codigo);
     }
+    
+    public boolean libroDisponible(String codigo) {
+        Libro libro = repoLibros.buscar(codigo);
+        
+        return libro.estaDisponible();
+        
+    }
+    
+    public Libro bucarLibro(String codigo) {
+        return repoLibros.buscar(codigo);
+    }
 }

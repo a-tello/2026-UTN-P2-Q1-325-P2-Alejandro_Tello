@@ -21,7 +21,8 @@ public class Repositorio<K,V> {
     public boolean existe(K key) {
         return repo.containsKey(key);
     }
-//    public <V> buscar(K key) {
-//        return repo.get(key);
-//    }
+    
+    public V buscar(K key) {
+        return repo.get(key);
+    }
 }
