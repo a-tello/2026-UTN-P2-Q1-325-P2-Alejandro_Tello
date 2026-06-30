@@ -20,7 +20,7 @@ public class Socio {
     
     @Override
     public String toString() {
-        return "Socio{" + "legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + '}';
+        return "Legajo: " + legajo + "\nNombre completo: " + nombre + " " + apellido + "\nDNI: " + dni;
     }
     
     

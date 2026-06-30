@@ -1,6 +1,7 @@
 
 package sistemabibliotecadigitalutn;
 
+import java.util.ArrayList;
 import static sistemabibliotecadigitalutn.SistemaBibliotecaDigitalUTN.biblioteca;
 import static sistemabibliotecadigitalutn.SistemaBibliotecaDigitalUTN.scanner;
 
@@ -25,17 +26,14 @@ public class Consola {
         switch (opcion) {
             case 1 -> {registrarSocio();pausar();}
             case 2 -> {registrarLibro();pausar();}
-            case 3 -> {}
-            case 4 -> {}
-            case 5 -> {}
-            case 6 -> {}
-            case 7 -> {}
-            case 8 -> {}
-            case 9 -> {}
+            case 3 -> {listarSocios();pausar();}
+            case 4 -> {listarLibrosDisponibles();pausar();}
+            case 5 -> {pausar();}
+            case 6 -> {pausar();}
+            case 8 -> {pausar();}
+            case 9 -> {pausar();}
             case 10 -> {}
-            case 11 -> {}
-            case 0 -> {}
-            default -> {System.out.println("\n");} 
+            default -> {System.out.println("\nDebe ingresar una opcion valida");} 
         }
                 
     }
@@ -84,6 +82,28 @@ public class Consola {
             System.out.println("Libro registrado con exito");
         } catch (Exception e) {
             System.out.println("ERROR. " + e.getMessage());
+        }
+    }
+    
+    public static void listarSocios() {
+        ArrayList<Socio> socios = biblioteca.listarSocios();
+        
+        System.out.println("\n\nSOCIOS REGISTRADOS\n");
+        
+        for (Socio s : socios) {
+            System.out.println(s);
+            System.out.println("-----------------------------------");
+        }
+    }
+    
+    public static void listarLibrosDisponibles() {
+        ArrayList<Libro> librosDisponibles = biblioteca.listarLibrosdisponibles();
+        
+        System.out.println("\n\nLIBROS DISPONIBLES\n");
+        
+        for (Libro l : librosDisponibles) {
+            System.out.println(l);
+            System.out.println("-----------------------------------");
         }
     }
 }

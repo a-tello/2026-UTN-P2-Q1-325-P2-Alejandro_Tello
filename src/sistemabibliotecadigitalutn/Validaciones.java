@@ -41,7 +41,7 @@ public class Validaciones {
                 return texto;
             }
 
-            System.out.println("Error. No puede dejar el campo vacío.");
+            System.out.println("Error. No puede dejar el campo vacio.");
         }
     }
 }
