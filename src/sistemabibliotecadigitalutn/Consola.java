@@ -24,7 +24,7 @@ public class Consola {
     public static void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1 -> {registrarSocio();pausar();}
-            case 2 -> {}
+            case 2 -> {registrarLibro();pausar();}
             case 3 -> {}
             case 4 -> {}
             case 5 -> {}
@@ -61,6 +61,27 @@ public class Consola {
             Socio socio = new Socio(legajo, nombre, apellido, dni);
             biblioteca.registrarSocio(socio);
             System.out.println("Socio registrado correctamente");
+        } catch (Exception e) {
+            System.out.println("ERROR. " + e.getMessage());
+        }
+    }
+    
+    public static void registrarLibro() {
+        String codigo = Validaciones.leerTexto("Ingrese codigo del libro: ");
+        
+        if (biblioteca.existeLibro(codigo)) {
+            System.out.println("\nERROR. El libro de codigo " + codigo + " ya se encuentra registrado.");
+            return;
+        }
+        
+        String titulo = Validaciones.leerTexto("Ingrese titulo del libro: ");
+        String autor = Validaciones.leerTexto("Ingrese autor: ");
+        String materia = Validaciones.leerTexto("Ingrese materia: ");
+        
+        try {
+            Libro libro = new Libro(codigo, titulo, autor, materia);
+            biblioteca.registrarLibro(libro);
+            System.out.println("Libro registrado con exito");
         } catch (Exception e) {
             System.out.println("ERROR. " + e.getMessage());
         }

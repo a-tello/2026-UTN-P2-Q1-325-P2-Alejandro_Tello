@@ -42,4 +42,8 @@ public class Biblioteca {
     public boolean existeSocio(int legajo) {
         return repoSocios.existe(legajo);
     }
+    
+    public boolean existeLibro(String codigo) {
+        return repoLibros.existe(codigo);
+    }
 }
