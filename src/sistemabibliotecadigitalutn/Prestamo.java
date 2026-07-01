@@ -44,7 +44,7 @@ public class Prestamo implements Serializable{
     @Override
     public String toString() {
         return "Prestamo:   " + codigo + "\nLibro:  " + libro.getTitulo() + "\nSocio:   " + socio.getApellido() + " " + socio.getNombre() + 
-                "\nFecha del prestamo:  " + fechaPrestamo + "\nEstado: " + estado;
+                "\nFecha del prestamo:  " + fechaPrestamo + "\nEstado: " + (estado ? "Activo" : "Inactivo");
     }
     
     

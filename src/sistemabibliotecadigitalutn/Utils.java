@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashMap;
 
 public class Utils {
     public static void escribirTexto(String rutaArchivo, String contenido){
@@ -21,8 +20,6 @@ public class Utils {
         try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(rutaArchivo))) {
            
             salida.writeObject(datos);
-                       
-            System.out.println("Objeto guardado");
             
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -40,16 +37,4 @@ public class Utils {
             return null;
         } 
     }
-        
-//        public static <T> void serializar(List<T> datos, String rutaArchivo) {
-//    try (FileOutputStream archivo = new FileOutputStream(rutaArchivo);
-//         ObjectOutputStream salida = new ObjectOutputStream(archivo)) {
-//
-//        salida.writeObject(datos);
-//
-//        System.out.println("Objeto guardado");
-//
-//    } catch (Exception e) {
-//        System.out.println("Error: " + e.getMessage());
-//    }
 }

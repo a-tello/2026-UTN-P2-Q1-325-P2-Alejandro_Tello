@@ -1,10 +1,8 @@
 package sistemabibliotecadigitalutn;
 
 import java.io.File;
-import java.security.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Biblioteca {
     private Repositorio<String, Libro> repoLibros;
@@ -17,7 +15,6 @@ public class Biblioteca {
         this.repoSocios = new Repositorio<>();
         this.repoPrestamos = new Repositorio<>();
         this.codigoPrestamo = 1;
-        inicializar();
     }
 
     public Biblioteca(Repositorio<String, Libro> repoLibros, Repositorio<Integer, Socio> repoSocios, Repositorio<Integer, Prestamo> repoPrestamos) {
@@ -141,10 +138,8 @@ public class Biblioteca {
     
     public void inicializar() {
         File propiedadesArchivo = new File("libros.dat");
-        
-        
+  
         if (propiedadesArchivo.exists()) {
-            System.out.println("inicializo");
             repoLibros = Utils.deserializar("libros.dat");
             repoSocios = Utils.deserializar("socios.dat");
             repoPrestamos = Utils.deserializar("prestamos.dat");

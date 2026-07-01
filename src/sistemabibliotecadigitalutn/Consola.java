@@ -54,7 +54,7 @@ public class Consola {
         
         String nombre = Validaciones.leerTexto("Ingrese nombre: ");
         String apellido = Validaciones.leerTexto("Ingrese apellido: ");
-        int dni = Validaciones.leerEnteroRango("\nIngrese numero de DNI: ", 1000000, 100000000);
+        int dni = Validaciones.leerEnteroRango("Ingrese numero de DNI: ", 1000000, 100000000);
         
         try {
             Socio socio = new Socio(legajo, nombre, apellido, dni);
@@ -88,24 +88,12 @@ public class Consola {
     
     public static void listarSocios() {
         ArrayList<Socio> socios = biblioteca.listarSocios();
-        
-        System.out.println("\n\nSOCIOS REGISTRADOS\n");
-        
-        for (Socio s : socios) {
-            System.out.println(s);
-            System.out.println("-----------------------------------");
-        }
+        listar(socios, "SOCIOS REGISTRADOS");
     }
     
     public static void listarLibrosDisponibles() {
         ArrayList<Libro> librosDisponibles = biblioteca.listarLibrosdisponibles();
-        
-        System.out.println("\n\nLIBROS DISPONIBLES\n");
-        
-        for (Libro l : librosDisponibles) {
-            System.out.println(l);
-            System.out.println("-----------------------------------");
-        }
+        listar(librosDisponibles, "LIBROS DISPONIBLES");
     }
     
     public static void buscarLibroPorCodigo() {
@@ -142,8 +130,8 @@ public class Consola {
         
         try {
             int numPrestamo = biblioteca.realizarPrestamo(codigo, legajo);
-            System.out.println("Prestamo registrado bajo el numero: " + numPrestamo);
-            System.out.println("El número de prestamo deberá ser ingresado para la devolucion");
+            System.out.println("\nPrestamo registrado bajo el numero: " + numPrestamo);
+            System.out.println("El numero de prestamo debera ser ingresado para la devolucion");
         } catch (Exception e) {
             System.out.println("ERROR. " + e.getMessage());
         }
@@ -183,9 +171,12 @@ public class Consola {
         biblioteca.guardarInformacion();
     }
     
-    public static <T> void imprimirArray(ArrayList<T> arreglo) {
-        for (T elemento : arreglo) {
-            System.out.println(elemento);
+    public static <T> void listar(ArrayList<T> arreglo, String titulo) {
+        System.out.println("\n\n" + titulo + "\n");
+        
+        for (T t : arreglo) {
+            System.out.println(t);
+            System.out.println("-----------------------------------");
         }
     }
     
