@@ -1,11 +1,14 @@
 package sistemabibliotecadigitalutn;
 
-public class Libro {
+import java.io.Serializable;
+
+public class Libro implements Serializable{
     private String codigo;
     private String titulo;
     private String autor;
     private String materia;
     private boolean disponible;
+    private int prestado;
 
     public Libro(String codigo, String titulo, String autor, String materia) {
         this.codigo = codigo;
@@ -13,6 +16,7 @@ public class Libro {
         this.autor = autor;
         this.materia = materia;
         this.disponible = true;
+        this.prestado = 0;
     }
 
     public String getCodigo() {

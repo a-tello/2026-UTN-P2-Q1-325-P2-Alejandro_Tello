@@ -1,9 +1,10 @@
 package sistemabibliotecadigitalutn;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Repositorio<K,V> {
+public class Repositorio<K,V> implements Serializable{
     private HashMap<K, V> repo;
 
     public Repositorio() {

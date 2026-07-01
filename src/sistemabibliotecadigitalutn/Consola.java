@@ -32,8 +32,8 @@ public class Consola {
             case 6 -> {registrarPrestamo();pausar();}
             case 7 -> {devolverLibro();pausar();}
             case 8 -> {mostrarPrestamosActivos();pausar();}
-            case 9 -> {pausar();}
-            case 10 -> {}
+            case 9 -> {generarInforme();pausar();}
+            case 10 -> {guardarInformacion();}
             default -> {System.out.println("\nDebe ingresar una opcion valida");} 
         }
                 
@@ -175,10 +175,18 @@ public class Consola {
         }
     }
     
+    public static void generarInforme() {
+        biblioteca.generarInforme();
+    }
+    
+    public static void guardarInformacion() {
+        biblioteca.guardarInformacion();
+    }
+    
     public static <T> void imprimirArray(ArrayList<T> arreglo) {
         for (T elemento : arreglo) {
             System.out.println(elemento);
         }
     }
-
+    
 }

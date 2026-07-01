@@ -1,8 +1,9 @@
 package sistemabibliotecadigitalutn;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Prestamo {
+public class Prestamo implements Serializable{
     private int codigo;
     private Libro libro;
     private Socio socio;

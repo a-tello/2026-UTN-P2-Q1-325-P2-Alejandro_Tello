@@ -1,6 +1,8 @@
 package sistemabibliotecadigitalutn;
 
-public class Socio {
+import java.io.Serializable;
+
+public class Socio implements Serializable{
     private int legajo;
     private String nombre;
     private String apellido;
